@@ -18,7 +18,7 @@ export class ShoppingListService {
   private connectionStatusSubject = new BehaviorSubject<boolean>(false);
 
   constructor() {
-    this.socket = io('https://ife6qc-ip-193-179-119-118.tunnelmole.net/', {
+    this.socket = io('http://localhost:3000', {
       transports: ['websocket'],
       autoConnect: true,
       reconnection: true,
