@@ -1,0 +1,169 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+/* Basic Ionic-like styles */
+ion-app {
+  display: block;
+}
+
+ion-header {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+ion-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  min-height: 56px;
+  background-color: #3880ff;
+  color: white;
+}
+
+ion-title {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+ion-buttons {
+  display: flex;
+  align-items: center;
+}
+
+ion-content {
+  display: block;
+  flex: 1;
+  overflow-y: auto;
+}
+
+ion-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+ion-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px 0;
+}
+
+ion-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #3880ff;
+  font-size: 16px;
+}
+
+ion-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+ion-icon {
+  font-size: 24px;
+}
+
+ion-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+ion-item-sliding {
+  display: block;
+  position: relative;
+}
+
+ion-item-options {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  background: #f44336;
+  padding: 0 16px;
+}
+
+ion-item-option {
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+ion-checkbox {
+  margin-right: 16px;
+}
+
+ion-label h2 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+ion-label p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Custom styles for the shopping list */
+.shopping-item {
+  transition: all 0.3s ease;
+}
+
+.shopping-item.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.add-item-form {
+  margin-bottom: 20px;
+}
+
+.connection-status {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.connection-status.connected {
+  background-color: #4caf50;
+  color: white;
+}
+
+.connection-status.disconnected {
+  background-color: #f44336;
+  color: white;
+}

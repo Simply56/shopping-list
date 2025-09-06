@@ -1,0 +1,23 @@
+{
+  "name": "shopping-list-monorepo",
+  "version": "1.0.0",
+  "description": "Real-time shared shopping list app",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev --workspace=@shopping-list/backend",
+    "dev:frontend": "npm run dev --workspace=@shopping-list/frontend",
+    "build": "npm run build --workspaces",
+    "build:backend": "npm run build --workspace=@shopping-list/backend",
+    "build:frontend": "npm run build --workspace=@shopping-list/frontend",
+    "start:backend": "npm run start:prod --workspace=@shopping-list/backend",
+    "install:all": "npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,59 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1 class="app-title">Shopping List</h1>
+    <div class="connection-status" [class.connected]="isConnected" [class.disconnected]="!isConnected">
+      {{ isConnected ? '🟢 Connected' : '🔴 Disconnected' }}
+    </div>
+  </header>
+
+  <main class="app-content">
+    <!-- Add Item Form -->
+    <div class="add-item-form" [class.disabled]="!isConnected">
+      <div class="input-group">
+        <input
+          type="text"
+          [(ngModel)]="newItemName"
+          [placeholder]="isConnected ? 'Add new item...' : 'Disconnected - Cannot add items'"
+          (keypress)="onKeyPress($event)"
+          class="item-input"
+          [disabled]="!isConnected"
+        />
+        <button 
+          class="add-button" 
+          (click)="addItem()" 
+          [disabled]="!newItemName.trim() || !isConnected"
+        >
+          +
+        </button>
+      </div>
+    </div>
+
+    <!-- Shopping List -->
+    <div class="shopping-list">
+      <div *ngFor="let item of shoppingList" class="shopping-item" [class.completed]="item.completed">
+        <div class="item-content" (click)="toggleItem(item)">
+          <input 
+            type="checkbox" 
+            [checked]="item.completed"
+            (click)="$event.stopPropagation(); toggleItem(item)"
+            class="item-checkbox"
+          />
+          <div class="item-details">
+            <h3 class="item-name">{{ item.name }}</h3>
+            <p class="item-date">{{ item.createdAt | date:'short' }}</p>
+          </div>
+        </div>
+        <button class="delete-button" (click)="deleteItem(item)">
+          🗑️
+        </button>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="shoppingList.length === 0" class="empty-state">
+      <div class="empty-icon">📝</div>
+      <h3>No items yet</h3>
+      <p>Add your first shopping item above!</p>
+    </div>
+  </main>
+</div>
