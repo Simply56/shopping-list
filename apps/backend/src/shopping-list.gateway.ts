@@ -20,8 +20,7 @@ export interface ShoppingItem {
 
 @WebSocketGateway({
   cors: {
-    origin: 'http://localhost:8100',
-    credentials: true,
+    origin: '*',
   },
 })
 export class ShoppingListGateway implements OnGatewayConnection, OnGatewayDisconnect {
